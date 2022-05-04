@@ -55,7 +55,7 @@ export async function getNote({
   userId,
 }: Pick<Note, "id"> & { userId: User["id"] }) {
   const { data, error } = await supabase
-    .from("notes")
+    .from<Note>("notes")
     .select("*")
     .eq("profile_id", userId)
     .eq("id", id)
